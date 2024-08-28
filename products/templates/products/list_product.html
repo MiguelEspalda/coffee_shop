@@ -1,26 +1,26 @@
 {% extends "base.html" %}
 {% block content %}
-<h1 class="text-3xl font-bold underline">
+<h1 class="text-3xl font-bold underline mb-8">
     Lista de Productos - Coffe Shop
 </h1>
-<ul>
+<div class="grid grid-cols-3 gap-4">
     {% for product in products %}
         <a href="#" class="relative block rounded-tr-3xl border border-gray-100">
-            <span class="absolute -right-px -top-px rounded-bl-3xl rounded-tr-3xl bg-rose-600 px-6 py-4 font-medium uppercase tracking-widest text-white">
-                Save 10%
+            <span class="absolute -right-px -top-px rounded-bl-3xl rounded-tr-3xl bg-rose-500 px-3 py-3 font-medium uppercase tracking-widest text-white">
+                Oferta 10%
             </span>
             {% if product.photo %}
                 <img
                 src="{{ product.photo.url }}"
                 alt="{{ product.name }}"
-                class="h-80 w-full rounded-tr-3xl object-cover"
+                class="h-96 w-80 rounded-tr-3xl object-cover mx-auto"
                 />
             {% endif %}
         
             <div class="p-4 text-center">
-                <strong class="text-xl font-medium text-gray-900"> {{ product.name }} </strong>
+                <strong class="text-xl font-large text-gray-1000"> {{ product.name }} </strong>
             
-                <p class="mt-2 text-pretty text-gray-700">
+                <p class="mt-2 text-pretty text-gray-600">
                     ${{ product.price }}
                 </p>
             
@@ -30,6 +30,6 @@
             </div>
         </a>
     {% endfor %}
-</ul>
+</div>
 {% endblock content %}
 

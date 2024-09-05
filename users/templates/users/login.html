@@ -1,0 +1,45 @@
+{% extends "base.html" %}
+{% load tailwind_filters %}
+
+{% block content %}
+<style>
+    html, body {
+        margin: 0;
+        padding: 0;
+        height: 100%;
+        background-color: #f0f0f0;
+    }
+</style>
+<div class="flex justify-center items-center h-screen">
+    <div class="w-full max-w-md bg-white p-8 border border-gray-300 rounded-lg shadow-lg">
+        <span class="flex font-bold text-center items-center mb-6">
+            <span class="h-px flex-1 bg-black"></span>
+            <span class="shrink-0 px-6">Bienvenido a Coffe Shop</span>
+            <span class="h-px flex-1 bg-black"></span>
+        </span>
+        <h1 class="text-3xl font-bold text-center mb-6">Inicio de Sesion</h1>
+        <form action="" method="post">
+            {% csrf_token %}
+            {{ form|crispy }}
+            <div class="flex item-center justify-center relative mt-4">
+                <a class="group relative inline-block focus:outline-none focus:ring">
+                    <span
+                        class="absolute inset-0 translate-x-1.5 translate-y-1.5 bg-orange-300 transition-transform group-hover:translate-x-0 group-hover:translate-y-0">
+                    </span>
+                    <button
+                        class="relative inline-block border-2 border-current px-8 py-3 text-sm font-bold uppercase tracking-widest text-black group-active:text-opacity-75" 
+                        type="submit">
+                        Ingresar
+                    </button>
+                </a>
+            </div>
+        </form>
+        <p class="text-center text-sm text-gray-500 mt-4">
+            ¿No tienes una cuenta?
+            <a class="underline" href="{% url "register" %}">Registrate</a>
+        </p>
+    </div>
+</div>
+{% endblock content %}
+
+

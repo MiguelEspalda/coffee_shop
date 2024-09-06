@@ -12,9 +12,11 @@ https://docs.djangoproject.com/en/5.1/ref/settings/
 
 import os
 from pathlib import Path
+import environ
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
+env = environ.Env()
 
 
 # Quick-start development settings - unsuitable for production
@@ -40,6 +42,7 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'crispy_forms',
     'crispy_tailwind',
+    'rest_framework',
     'products',
     'users',
     'orders',
@@ -135,3 +138,9 @@ CRISPY_TEMPLATE_PACK = "tailwind"
 LOGIN_REDIRECT_URL = 'list_product'
 LOGOUT_REDIRECT_URL = 'list_product'
 LOGIN_URL = 'login'
+
+REST_FRAMEWORK = {
+    'DEFAULT_PERMISSION_CLASSES': [
+        'rest_framework.permissions.DjangoModelPermissionsOrAnonReadOnly'
+    ]
+}
